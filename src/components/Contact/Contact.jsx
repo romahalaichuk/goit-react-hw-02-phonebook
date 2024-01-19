@@ -1,13 +1,21 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./Contact.module.css";
 
 class Contact extends React.Component {
   render() {
     const { contact, deleteContact } = this.props;
     return (
-      <li>
-        {contact.name}: {contact.number}{' '}
-        <button onClick={() => deleteContact(contact.id)}>Delete</button>
+      <li className={styles.contactItem}>
+        <span className={styles.contactInfo}>
+          {contact.name}: {contact.number}
+        </span>
+        <button
+          className={styles.deleteButton}
+          onClick={() => deleteContact(contact.id)}
+        >
+          Delete
+        </button>
       </li>
     );
   }
